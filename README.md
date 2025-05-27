@@ -1,12 +1,12 @@
-# Retail Sales Analysis SQL Project
+# Analysis of Retail Sales  SQL Project
 
 ## Project Overview
 
-**Project Title**: Retail Sales Analysis  
-**Level**: Beginner  
+**Project Title**: Analysis of Retail Sales   
+**Database**: PostgreSQL  
 **Database**: `p1_retail_db`
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+This project aims to demonstrate the application of my SQL skills as a data analyst to explore, clean, and analyze retail sales data. It involves designing and populating a retail sales database, performing exploratory data analysis (EDA) through complex SQL queries, and answering key business questions such as sales trends, customer segmentation, and product performance. Through this project, I am able to extract actionable insights from retail sales data and contribute to data-driven decision-making processes within the organization.
 
 ## Objectives
 
@@ -25,19 +25,19 @@ This project is designed to demonstrate SQL skills and techniques typically used
 ```sql
 CREATE DATABASE p1_retail_db;
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
+CREATE TABLE  retail_sales(
+			transactions_id INT PRIMARY KEY,
+			sale_date DATE,
+			sale_time TIME,	
+			customer_id INT,	
+			gender VARCHAR(6),
+			age INT,
+			category VARCHAR(25),
+			quantity INT,
+			price_per_unit FLOAT,
+			purchasing_cost FLOAT,
+			total_sale FLOAT
+
 );
 ```
 
@@ -54,16 +54,50 @@ SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
 SELECT DISTINCT category FROM retail_sales;
 
 SELECT * FROM retail_sales
+WHERE transactions_id IS NULL
+
+SELECT * FROM retail_sales
+WHERE sale_date IS NULL
+
+SELECT * FROM retail_sales
+WHERE sale_time IS NULL
+
+SELECT * FROM retail_sales
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    transaction_id IS NULL
+    OR
+    sale_date IS NULL
+    OR 
+    sale_time IS NULL
+    OR
+    gender IS NULL
+    OR
+    category IS NULL
+    OR
+    quantity IS NULL
+    OR
+    cogs IS NULL
+    OR
+    total_sale IS NULL;
+    
 
 DELETE FROM retail_sales
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    transaction_id IS NULL
+    OR
+    sale_date IS NULL
+    OR 
+    sale_time IS NULL
+    OR
+    gender IS NULL
+    OR
+    category IS NULL
+    OR
+    quantity IS NULL
+    OR
+    cogs IS NULL
+    OR
+    total_sale IS NULL;
 ```
 
 ### 3. Data Analysis & Findings
@@ -211,7 +245,7 @@ This project serves as a comprehensive introduction to SQL for data analysts, co
 3. **Run the Queries**: Use the SQL queries provided in the `analysis_queries.sql` file to perform your analysis.
 4. **Explore and Modify**: Feel free to modify the queries to explore different aspects of the dataset or answer additional business questions.
 
-## Author - Zero Analyst
+## Author - Tolulope Peter Makinde
 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
 
@@ -219,9 +253,7 @@ This project is part of my portfolio, showcasing the SQL skills essential for da
 
 For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
 
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
+- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/tolulope-peter-makinde/)
+
 
 Thank you for your support, and I look forward to connecting with you!
